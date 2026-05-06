@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tiếng Hàn vui vẻ cùng cô Lan</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <img id="teacherPhoto" src="assets/co-lan.jpg" alt="Cô Lan" onerror="this.src='assets/co-lan.svg'">
+        <div>
+          <p class="eyebrow">TOPIK 1-3</p>
+          <h1>Tiếng Hàn vui vẻ cùng cô Lan</h1>
+          <p class="korean-title" lang="ko">란 선생님과 함께하는 즐거운 한국어</p>
+        </div>
+      </div>
+      <div class="timer" aria-live="polite">
+        <span>Thời gian</span>
+        <strong id="timerText">00:00</strong>
+      </div>
+    </header>
+
+    <main>
+      <section id="startPanel" class="start-panel">
+        <div class="start-copy">
+          <h2>Luyện nghe đọc viết đơn giản</h2>
+          <p>Kho 1000 câu trải đều TOPIK 1, TOPIK 2 và TOPIK 3. Mỗi lượt làm sẽ tráo câu hỏi và tráo đáp án.</p>
+        </div>
+        <div class="exam-card">
+          <label for="examSize">Cỡ đề</label>
+          <select id="examSize">
+            <option value="70" selected>Đề vừa 70 câu</option>
+            <option value="104">Đề dài 104 câu</option>
+            <option value="30">Luyện nhanh 30 câu</option>
+          </select>
+          <label for="examLevel">Mức TOPIK muốn luyện</label>
+          <select id="examLevel">
+            <option value="1">TOPIK 1</option>
+            <option value="2">TOPIK 2</option>
+            <option value="3" selected>TOPIK 3</option>
+          </select>
+          <div class="stat-grid">
+            <div>
+              <span>Kho câu</span>
+              <strong id="bankCount">1000</strong>
+            </div>
+            <div>
+              <span>Cấp độ</span>
+              <strong>1 / 2 / 3</strong>
+            </div>
+            <div>
+              <span>Phần thi</span>
+              <strong>Nghe + Đọc + Viết</strong>
+            </div>
+          </div>
+          <button id="startButton" class="primary-button" type="button">Bắt đầu làm bài</button>
+        </div>
+      </section>
+
+      <section id="examPanel" class="exam-panel hidden" aria-live="polite">
+        <div class="exam-toolbar">
+          <div>
+            <p id="progressText">Câu 0 / 0</p>
+            <div class="progress-track"><div id="progressBar"></div></div>
+          </div>
+          <button id="submitButton" class="submit-button" type="button">Nộp bài</button>
+        </div>
+        <form id="questionForm" class="question-list"></form>
+      </section>
+
+      <section id="resultPanel" class="result-panel hidden" aria-live="polite">
+        <div class="result-hero">
+          <div>
+            <p class="eyebrow">Kết quả phiên này</p>
+            <h2 id="scoreText">0 / 0 câu đúng</h2>
+            <p id="detailText"></p>
+          </div>
+          <button id="retryButton" class="primary-button" type="button">Làm lượt mới</button>
+        </div>
+        <div class="review-actions">
+          <button id="wrongOnlyButton" class="tab-button active" type="button">Câu sai</button>
+          <button id="allReviewButton" class="tab-button" type="button">Tất cả câu</button>
+        </div>
+        <div id="reviewList" class="review-list"></div>
+      </section>
+    </main>
+
+    <script src="questionBank.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
